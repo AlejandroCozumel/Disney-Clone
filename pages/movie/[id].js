@@ -94,7 +94,7 @@ function Movie({ result }) {
 
           {/* Bg Overlay */}
           {showPlayer && (
-            <div className="absolute inset-0 bg-black opacity-50 h-full w-full z-50"></div>
+            <div className="absolute inset-0 bg-black opacity-50 h-full w-full z-50" onClick={() => setShowPlayer(false)}></div>
           )}
 
           <div

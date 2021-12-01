@@ -95,7 +95,7 @@ function Show({ result }) {
 
           {/* Bg Overlay */}
           {showPlayer && (
-            <div className="absolute inset-0 bg-black opacity-50 h-full w-full z-50"></div>
+            <div className="absolute inset-0 bg-black opacity-50 h-full w-full z-50" onClick={() => setShowPlayer(false)}></div>
           )}
 
           <div
@@ -136,7 +136,7 @@ export async function getServerSideProps(context) {
   const { id } = context.query;
 
   const request = await fetch(
-    `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.API_KEY}&language=en-US&append_to_response=videos`
+    `https://api.themoviedb.org/3/show/${id}?api_key=${process.env.API_KEY}&language=en-US&append_to_response=videos`
   ).then((response) => response.json());
 
   return {
