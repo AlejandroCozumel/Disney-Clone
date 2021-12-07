@@ -13,6 +13,7 @@ function Show({ result }) {
   const BASE_URL = "https://image.tmdb.org/t/p/original/";
   const router = useRouter();
   const [showPlayer, setShowPlayer] = useState(false);
+  const [showRick, setShowRick] = useState(false);
 
   useEffect(() => {
     if (!session) {
@@ -50,7 +51,10 @@ function Show({ result }) {
               {result.title || result.original_name}
             </h1>
             <div className="flex items-center space-x-3 md:space-x-5">
-              <button className="text-xs md:text-base bg-[#f9f9f9] text-black flex items-center justify-center py-2.5 px-6 rounded hover:bg-[#c6c6c6]">
+              <button
+                className="text-xs md:text-base bg-[#f9f9f9] text-black flex items-center justify-center py-2.5 px-6 rounded hover:bg-[#c6c6c6]"
+                onClick={() => setShowRick(true)}
+              >
                 <img
                   src="/images/play-icon-black.svg"
                   alt=""
@@ -71,7 +75,7 @@ function Show({ result }) {
                   className="h-6 md:h-8"
                 />
                 <span className="uppercase font-medium tracking-wide">
-                  Trailer
+                  { showRick ? 'RickRoll' : 'Trailer'}
                 </span>
               </button>
 
@@ -95,7 +99,10 @@ function Show({ result }) {
 
           {/* Bg Overlay */}
           {showPlayer && (
-            <div className="absolute inset-0 bg-black opacity-50 h-full w-full z-50" onClick={() => setShowPlayer(false)}></div>
+            <div
+              className="absolute inset-0 bg-black opacity-50 h-full w-full z-50"
+              onClick={() => setShowPlayer(false)}
+            ></div>
           )}
 
           <div
@@ -114,7 +121,7 @@ function Show({ result }) {
             </div>
             <div className="relative pt-[56.25%]">
               <ReactPlayer
-                url={`https://www.youtube.com/watch?v=${result.videos?.results[index]?.key}`}
+                url={ showRick ? 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' : `https://www.youtube.com/watch?v=${result.videos?.results[index]?.key}`}
                 width="100%"
                 height="100%"
                 style={{ position: "absolute", top: "0", left: "0" }}
