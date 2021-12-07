@@ -13,7 +13,7 @@ export default function Home({
   top_ratedMovies,
   top_ratedShows,
 }) {
-  console.log(popularMovies);
+  
   const [session] = useSession();
 
   return (

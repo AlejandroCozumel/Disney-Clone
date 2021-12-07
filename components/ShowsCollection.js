@@ -1,4 +1,4 @@
-import ShowThumbnail from "./MovieThumbnail";
+import ShowThumbnail from "./ShowThumbnail";
 
 function ShowsCollection({ results, title }) {
   return (
