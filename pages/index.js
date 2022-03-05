@@ -14,6 +14,8 @@ export default function Home({
   top_ratedShows,
 }) {
   
+  console.log('hola')
+  
   const [session] = useSession();
 
   return (
