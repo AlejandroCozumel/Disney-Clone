@@ -13,9 +13,9 @@ export default function Home({
   top_ratedMovies,
   top_ratedShows,
 }) {
-  
-  console.log('hola')
-  
+
+  console.log('create PR')
+
   const [session] = useSession();
 
   return (
